@@ -43,35 +43,7 @@ def fuzzy_compare_words(search_word, db_word):
     else:
         return marks/s_wd_len
 
-
-"""A crude function that compares two words to return a
-real number between 0 and 1, measuring how well the
-two words matches
-"""
-
-
-def compare_words(wd1, wd2):
-    marks = 0
-    score = 0
-    len1 = len(wd1)
-    len2 = len(wd2)
-    wd1 = wd1.lower()
-    wd2 = wd2.lower()
-    if len1 < len2:
-        ln = len1
-    else:
-        ln = len2
-    for i in range(0, ln):
-        if wd1[i] == wd2[i]:
-            marks += 1.0
-        else:
-            marks -= 0.5
-    score = marks/ln
-    if score < 0:
-        return 0
-    return score
-
-
+    
 """campare_strings compare two strings to return a number
 between 0 and 1, measuring how well the two strings matches.
 The convention is that the first argument is the searched
@@ -98,53 +70,6 @@ def compare_strings(search_string, db_string):
     return score/len1
 
 
-"""sort the list of strings against the given search string
-"""
-
-
-def search_sort(search_string, db_titles_list, max_results=10):
-    threshold = 0.2
-    sorted_array = []
-    score_array = []
-    for db_string in db_titles_list:
-        score_array.append(compare_strings(search_string, db_string))
-    print(score_array)
-    for i in range(0, max_results):
-        max1 = max(score_array)
-        if max1 > threshold:
-            index = score_array.index(max1)
-            sorted_array.append(db_titles_list[index])
-            score_array[index] = 0
-    return sorted_array
-
-
-db1 = [
-    'How to write',
-    'About life',
-    'The door of life',
-    'My pen says',
-    'Django Web Development',
-    'English Poems by Robert Frost',
-    'Hindi Poems by Kumar Vishawas',
-    'Django Codes',
-    'Classes Django',
-    'Flask Development Classes',
-    'Web Spider',
-    'Django Learning',
-    'flasky things',
-]
-db2 = [
-    'Python',
-    'Django',
-    'Other Frameworks',
-    'Machine Learning',
-    'Neural Networks',
-    'Computational Physics,'
-    'Django REST API',
-    'English Poems - By Robert Frost',
-    'Hindi Poems - By Kumar Vishawas',
-    'FPS Games',
-]
-
-search_string = 'Django class'
-print(search_sort(search_string, db1))
+# search_string = 'John Doe'
+# db_string = "Who is Jones Doe"
+# print(search_sort(search_string, db1))
