@@ -2,7 +2,7 @@
 A fuzzy search algorithm, that can rank the titles in database by comparing them with the searched string.
 
 A Simple Fuzzy Search Algorithm.pdf : 
-This PDF file includes an introduction and illustration of the working idea behind the algorithm. And it also points out some of its useful applications.
+This PDF file includes an introduction and illustration of the working idea behind the algorithm. And it also points out some of its possible applications.
 
 FuzzySearch.py : 
 The python code implementing the algorithm.
